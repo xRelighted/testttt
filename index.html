@@ -1,268 +1,1295 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Luana Bell Agüero Arce | Curriculum Vitae</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background:linear-gradient(120deg,#f6f7fb,#e9ecf1);
-    color:#333;
-}
-
-.container{
-    max-width:1100px;
-    margin:40px auto;
-    display:flex;
-    background:#fff;
-    border-radius:22px;
-    overflow:hidden;
-    box-shadow:0 30px 60px rgba(0,0,0,.12);
-    animation:fade 1.2s ease;
-}
-
-.sidebar{
-    width:320px;
-    padding:45px;
-    color:#fff;
-    background:linear-gradient(180deg,#3a4fff,#5f6cff);
-    animation:slideLeft 1.2s ease;
-}
-
-.sidebar h1{
-    font-size:30px;
-    line-height:1.2;
-}
-
-.sidebar span{
-    font-weight:300;
-}
-
-.age{
-    margin:10px 0 30px;
-    opacity:.85;
-}
-
-.contact p{
-    margin-bottom:12px;
-    font-size:14px;
-}
-
-.content{
-    flex:1;
-    padding:45px;
-    animation:slideUp 1.2s ease;
-}
-
-section{
-    margin-bottom:35px;
-}
-
-h2{
-    margin-bottom:16px;
-    position:relative;
-}
-
-h2::after{
-    content:'';
-    width:40px;
-    height:3px;
-    background:#5f6cff;
-    position:absolute;
-    left:0;
-    bottom:-6px;
-    border-radius:3px;
-}
-
-.card{
-    background:#f7f8ff;
-    padding:20px;
-    border-radius:15px;
-}
-
-.card h3{
-    margin-bottom:5px;
-}
-
-.card span, .card small{
-    display:block;
-    opacity:.8;
-}
-
-.skill{
-    margin-bottom:16px;
-}
-
-.skill span{
-    font-size:14px;
-}
-
-.bar{
-    background:#ddd;
-    height:8px;
-    border-radius:6px;
-    overflow:hidden;
-    margin-top:6px;
-}
-
-.bar div{
-    height:100%;
-    width:0;
-    background:linear-gradient(90deg,#3a4fff,#5f6cff);
-    border-radius:6px;
-    transition:width 1.5s ease;
-}
-
-ul{
-    list-style:none;
-}
-
-ul li{
-    margin-bottom:8px;
-}
-
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.tags li{
-    background:#eef0ff;
-    padding:8px 14px;
-    border-radius:20px;
-    font-size:13px;
-}
-
-@keyframes fade{
-    from{opacity:0}
-    to{opacity:1}
-}
-
-@keyframes slideLeft{
-    from{transform:translateX(-40px);opacity:0}
-    to{transform:translateX(0);opacity:1}
-}
-
-@keyframes slideUp{
-    from{transform:translateY(40px);opacity:0}
-    to{transform:translateY(0);opacity:1}
-}
-
-@media(max-width:900px){
-    .container{
-        flex-direction:column;
-    }
-    .sidebar{
-        width:100%;
-        text-align:center;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite Pro - Plataforma de Gaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+    <style>
+        :root {
+            --primary-color: #00ccff;
+            --secondary-color: #ff66c4;
+            --accent-color: #9d4edd;
+            --dark-bg: #0a0a12;
+            --darker-bg: #05050a;
+            --card-bg: #151522;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0d0;
+            --hover-color: #252538;
+            --border-color: #2a2a3a;
+            --success-color: #00ff88;
+            --warning-color: #ffaa00;
+            --epic-color: #cba6f7;
+            --legendary-color: #ffcc00;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--darker-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(157, 78, 221, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(0, 204, 255, 0.1) 0%, transparent 20%);
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(10, 10, 18, 0.95);
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            border-bottom: 2px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-left, .header-center, .header-right {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-right: 30px;
+        }
+        
+        .logo span {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-icon {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .action-button {
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.3);
+        }
+        
+        .v-bucks {
+            display: flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 700;
+        }
+        
+        .v-bucks i {
+            color: gold;
+            margin-right: 8px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            cursor: pointer;
+            border: 2px solid var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            margin-top: 70px;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .play-button {
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .play-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 204, 255, 0.3);
+        }
+        
+        .secondary-button {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        
+        .secondary-button:hover {
+            background-color: var(--hover-color);
+            border-color: var(--primary-color);
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+        
+        .hero-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--border-color);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+        
+        /* Sections */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            margin-top: 60px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+        
+        .view-all {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .view-all:hover {
+            text-decoration: underline;
+        }
+        
+        /* Battle Pass Section */
+        .battle-pass {
+            background: linear-gradient(135deg, var(--card-bg), #1a1a2e);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .battle-pass::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+        }
+        
+        .bp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .bp-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        
+        .bp-season {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .bp-progress {
+            margin-bottom: 30px;
+        }
+        
+        .bp-level {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .bp-level span {
+            font-weight: 600;
+        }
+        
+        .bp-progress-bar {
+            height: 12px;
+            background-color: var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .bp-progress-fill {
+            height: 100%;
+            width: 65%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 6px;
+        }
+        
+        .bp-rewards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        
+        .bp-reward {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+        
+        .bp-reward:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+        
+        .reward-image {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: var(--darker-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--border-color);
+        }
+        
+        .reward-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .reward-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .reward-level {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Shop Grid */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .shop-item {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .shop-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
+        }
+        
+        .item-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .shop-item:hover .item-image img {
+            transform: scale(1.1);
+        }
+        
+        .item-info {
+            padding: 20px;
+        }
+        
+        .item-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .item-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .item-rarity {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .rarity-epic {
+            background-color: rgba(157, 78, 221, 0.2);
+            color: var(--epic-color);
+            border: 1px solid var(--epic-color);
+        }
+        
+        .rarity-legendary {
+            background-color: rgba(255, 204, 0, 0.2);
+            color: var(--legendary-color);
+            border: 1px solid var(--legendary-color);
+        }
+        
+        .rarity-rare {
+            background-color: rgba(0, 204, 255, 0.2);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .item-price {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .item-price i {
+            color: gold;
+        }
+        
+        /* Challenges */
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .challenge-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+        
+        .challenge-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .challenge-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .challenge-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        .challenge-xp {
+            background-color: var(--success-color);
+            color: var(--dark-bg);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .challenge-progress {
+            margin-bottom: 15px;
+        }
+        
+        .challenge-progress-text {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .challenge-progress-bar {
+            height: 8px;
+            background-color: var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .challenge-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 4px;
+        }
+        
+        .challenge-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        /* News Section */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+        
+        .news-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .news-card:hover .news-image img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-category {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .news-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .news-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .news-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text {
+                text-align: center;
+            }
+            
+            .hero-text p {
+                max-width: 100%;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 0 15px;
+                height: 60px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .bp-rewards {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+            
+            .shop-grid, .challenges-grid, .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-section {
+                padding: 30px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .action-button {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+            
+            .v-bucks {
+                padding: 5px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .bp-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+        
+        /* Animaciones */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .glow {
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.5);
+        }
+    </style>
 </head>
-
 <body>
-
-<div class="container">
-    <aside class="sidebar">
-        <h1>Luana Bell<br><span>Agüero Arce</span></h1>
-        <p class="age">18 años · 26/07/2007</p>
-
-        <div class="contact">
-            <p>📞 +595 976 549 410</p>
-            <p>✉️ luanabellaguero@gmail.com</p>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <a href="#" class="logo">
+                <i class="fas fa-gamepad logo-icon"></i>
+                <span>FORTNITEPRO</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active">Inicio</a></li>
+                <li><a href="#" class="nav-link">Battle Pass</a></li>
+                <li><a href="#" class="nav-link">Tienda</a></li>
+                <li><a href="#" class="nav-link">Modos</a></li>
+                <li><a href="#" class="nav-link">Noticias</a></li>
+                <li><a href="#" class="nav-link">Competitivo</a></li>
+            </ul>
         </div>
-    </aside>
-
-    <main class="content">
-
-        <section>
-            <h2>Perfil</h2>
-            <p>
-                Joven profesional en formación con excelente predisposición administrativa y habilidades en
-                gestión de oficina. Dominio de herramientas Microsoft Office y conocimientos en maquillaje
-                profesional en niveles inicial y avanzado.
-            </p>
-        </section>
-
-        <section>
-            <h2>Formación Académica</h2>
-            <div class="card">
-                <h3>Bachiller Técnico Científico</h3>
-                <p>Énfasis en Ciencias Sociales</p>
-                <span>Colegio Redentorista Priv. Subv. Santísimo Redentor</span>
-                <small>2025 – En curso de finalización</small>
+        
+        <div class="header-right">
+            <div class="header-actions">
+                <button class="action-button pulse">
+                    <i class="fas fa-play"></i> Jugar Ahora
+                </button>
+                <div class="v-bucks">
+                    <i class="fas fa-coins"></i>
+                    <span>3,250</span>
+                </div>
+                <div class="user-avatar">
+                    P1
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>NUEVA TEMPORADA<br>CAPÍTULO 4 - TEMPORADA 3</h1>
+                <p>Explora la jungla salvaje, descubre secretos antiguos y domina las nuevas mecánicas de juego. ¡La aventura más grande de Fortnite te espera!</p>
+                
+                <div class="hero-buttons">
+                    <button class="play-button glow">
+                        <i class="fas fa-play-circle"></i> Jugar Gratis
+                    </button>
+                    <button class="secondary-button">
+                        <i class="fas fa-info-circle"></i> Ver Trailer
+                    </button>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">125M+</div>
+                        <div class="stat-label">Jugadores Activos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25</div>
+                        <div class="stat-label">Nuevos Objetos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">70+</div>
+                        <div class="stat-label">Recompensas BP</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://cdn.cdnstep.com/5BRTU83jvPQE4lboJuns/0.webp" alt="Fortnite Temporada 4 Capítulo 3">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Battle Pass Section -->
+        <section class="battle-pass-section">
+            <div class="section-header">
+                <h2 class="section-title">Battle Pass</h2>
+                <a href="#" class="view-all">
+                    Ver todos los niveles <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="battle-pass">
+                <div class="bp-header">
+                    <h3 class="bp-title">Battle Pass - Jungla Salvaje</h3>
+                    <div class="bp-season">TEMPORADA 4 - CAPÍTULO 3</div>
+                </div>
+                
+                <div class="bp-progress">
+                    <div class="bp-level">
+                        <span>Nivel 42</span>
+                        <span>Nivel 100</span>
+                    </div>
+                    <div class="bp-progress-bar">
+                        <div class="bp-progress-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="bp-rewards" id="bpRewards">
+                    <!-- Battle Pass rewards will be loaded here by JavaScript -->
+                </div>
             </div>
         </section>
-
-        <section>
-            <h2>Habilidades Técnicas</h2>
-
-            <div class="skill">
-                <span>Microsoft Word</span>
-                <div class="bar"><div data-width="85%"></div></div>
+        
+        <!-- Shop Section -->
+        <section class="shop-section">
+            <div class="section-header">
+                <h2 class="section-title">Tienda del Día</h2>
+                <a href="#" class="view-all">
+                    Ver tienda completa <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
-
-            <div class="skill">
-                <span>Microsoft Excel</span>
-                <div class="bar"><div data-width="80%"></div></div>
-            </div>
-
-            <div class="skill">
-                <span>Microsoft PowerPoint</span>
-                <div class="bar"><div data-width="90%"></div></div>
+            
+            <div class="shop-grid" id="shopItems">
+                <!-- Shop items will be loaded here by JavaScript -->
             </div>
         </section>
-
-        <section>
-            <h2>Idiomas</h2>
-            <ul>
-                <li>Español — Nativo</li>
-                <li>Inglés — Básico</li>
-            </ul>
+        
+        <!-- Challenges Section -->
+        <section class="challenges-section">
+            <div class="section-header">
+                <h2 class="section-title">Desafíos de la Semana</h2>
+                <a href="#" class="view-all">
+                    Ver todos los desafíos <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="challenges-grid" id="challengesList">
+                <!-- Challenges will be loaded here by JavaScript -->
+            </div>
         </section>
-
-        <section>
-            <h2>Certificaciones</h2>
-            <ul>
-                <li>Maquillaje Profesional – Nivel Avanzado (2025)</li>
-                <li>Maquillaje Profesional – Nivel Inicial (2025)</li>
-                <small>Centro de imagen Lesly Ortigoza</small>
-            </ul>
+        
+        <!-- News Section -->
+        <section class="news-section">
+            <div class="section-header">
+                <h2 class="section-title">Últimas Noticias</h2>
+                <a href="#" class="view-all">
+                    Ver todas las noticias <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="news-grid" id="newsList">
+                <!-- News will be loaded here by JavaScript -->
+            </div>
         </section>
-
-        <section>
-            <h2>Habilidades Adicionales</h2>
-            <ul class="tags">
-                <li>Comunicación interpersonal</li>
-                <li>Capacidad organizativa</li>
-                <li>Trabajo en equipo</li>
-                <li>Atención al detalle</li>
-            </ul>
-        </section>
-
     </main>
-</div>
-
-<script>
-window.addEventListener("load",()=>{
-    document.querySelectorAll(".bar div").forEach(bar=>{
-        const w = bar.dataset.width;
-        bar.style.width = w;
-    });
-});
-</script>
-
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FORTNITEPRO</h3>
+                <p>La plataforma definitiva para jugadores de Fortnite. Mantente al día con las últimas noticias, desafíos y contenido del juego.</p>
+                
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Descargar Fortnite</a></li>
+                    <li><a href="#">Soporte Técnico</a></li>
+                    <li><a href="#">Estado del Servidor</a></li>
+                    <li><a href="#">Competitivo</a></li>
+                    <li><a href="#">Códigos de Canje</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Recursos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Guías y Tutoriales</a></li>
+                    <li><a href="#">Mapas Interactivos</a></li>
+                    <li><a href="#">Calculadora de XP</a></li>
+                    <li><a href="#">Estadísticas</a></li>
+                    <li><a href="#">Eventos</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Términos de Servicio</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Política de Cookies</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2023 FortnitePro. Esta es una plataforma de fans no oficial. Fortnite es una marca registrada de Epic Games.</p>
+            <p>Todas las imágenes utilizan la misma miniatura personalizada como se solicitó.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // URL de la imagen personalizada
+        const customImageUrl = "https://cdn.cdnstep.com/5BRTU83jvPQE4lboJuns/0.webp";
+        
+        // Datos del Battle Pass
+        const battlePassRewards = [
+            { id: 1, name: "Traje - Cazador de Jungla", level: 5, rarity: "epic" },
+            { id: 2, name: "Emote - Danza Tribal", level: 10, rarity: "rare" },
+            { id: 3, name: "Ala Delta - Alas de Jaguar", level: 15, rarity: "epic" },
+            { id: 4, name: "Pico - Garra Ancestral", level: 20, rarity: "legendary" },
+            { id: 5, name: "Traje - Guardián del Templo", level: 30, rarity: "legendary" },
+            { id: 6, name: "Emote - Ritual de la Selva", level: 40, rarity: "epic" },
+            { id: 7, name: "Mochila - Reliquia Perdida", level: 50, rarity: "rare" },
+            { id: 8, name: "Traje - Espíritu de la Jungla", level: 75, rarity: "legendary" }
+        ];
+        
+        // Datos de la tienda
+        const shopItems = [
+            { id: 1, name: "Traje - Cibernético", description: "Traje futurista con efectos luminosos y animaciones personalizadas.", price: 1500, rarity: "legendary" },
+            { id: 2, name: "Emote - Break Dance", description: "Realiza movimientos de breakdance con efectos de partículas.", price: 800, rarity: "epic" },
+            { id: 3, name: "Pico - Espada Láser", description: "Espada láser que cambia de color y emite sonidos únicos.", price: 1200, rarity: "legendary" },
+            { id: 4, name: "Ala Delta - Alas de Dragón", description: "Ala delta con aspecto de dragón y efectos de fuego.", price: 1200, rarity: "epic" },
+            { id: 5, name: "Traje - Detective Noir", description: "Traje clásico de detective con sombrero y efectos de lluvia.", price: 1500, rarity: "epic" },
+            { id: 6, name: "Emote - Guitarra Eléctrica", description: "Toca una guitarra eléctrica con efectos de sonido y luces.", price: 800, rarity: "rare" }
+        ];
+        
+        // Datos de desafíos
+        const challenges = [
+            { id: 1, title: "Eliminaciones en Zonas Altas", description: "Consigue 10 eliminaciones en áreas elevadas del mapa.", progress: 7, total: 10, xp: 25000 },
+            { id: 2, title: "Recolectar Frutas Exóticas", description: "Encuentra y consume 15 frutas exóticas en la jungla.", progress: 15, total: 15, xp: 15000 },
+            { id: 3, title: "Recorrer Distancia en Liana", description: "Recorre 1000m utilizando lianas en la jungla.", progress: 650, total: 1000, xp: 20000 },
+            { id: 4, title: "Buscar Cofres en Templos", description: "Abre 7 cofres en templos antiguos de la jungla.", progress: 4, total: 7, xp: 15000 }
+        ];
+        
+        // Datos de noticias
+        const news = [
+            { id: 1, title: "Nueva Actualización 24.10 - ¡La Jungla se Expande!", category: "Actualización", excerpt: "Descubre las nuevas áreas de la jungla, mecánicas de lianas y animales salvajes en la última actualización.", date: "Hace 2 días" },
+            { id: 2, title: "Torneo Cash Cup - $50,000 en Premios", category: "Competitivo", excerpt: "Inscríbete al torneo Cash Cup de esta semana con premios en efectivo para los mejores jugadores.", date: "Hace 4 días" },
+            { id: 3, title: "Colaboración con Marvel: Nuevos Trajes", category: "Colaboración", excerpt: "Llegan nuevos trajes de personajes de Marvel al juego, incluyendo versiones exclusivas.", date: "Hace 1 semana" }
+        ];
+        
+        // Inicializar la aplicación
+        document.addEventListener('DOMContentLoaded', function() {
+            renderBattlePassRewards();
+            renderShopItems();
+            renderChallenges();
+            renderNews();
+            setupEventListeners();
+        });
+        
+        // Renderizar recompensas del Battle Pass
+        function renderBattlePassRewards() {
+            const container = document.getElementById('bpRewards');
+            container.innerHTML = '';
+            
+            battlePassRewards.forEach(reward => {
+                const rewardElement = document.createElement('div');
+                rewardElement.className = 'bp-reward';
+                rewardElement.innerHTML = `
+                    <div class="reward-image">
+                        <img src="${customImageUrl}" alt="${reward.name}">
+                    </div>
+                    <div class="reward-name">${reward.name}</div>
+                    <div class="reward-level">Nivel ${reward.level}</div>
+                `;
+                
+                container.appendChild(rewardElement);
+            });
+        }
+        
+        // Renderizar items de la tienda
+        function renderShopItems() {
+            const container = document.getElementById('shopItems');
+            container.innerHTML = '';
+            
+            shopItems.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'shop-item';
+                itemElement.innerHTML = `
+                    <div class="item-image">
+                        <img src="${customImageUrl}" alt="${item.name}">
+                    </div>
+                    <div class="item-info">
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-description">${item.description}</div>
+                        <div class="item-footer">
+                            <div class="item-rarity rarity-${item.rarity}">${item.rarity.toUpperCase()}</div>
+                            <div class="item-price">
+                                <i class="fas fa-coins"></i>
+                                <span>${item.price}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(itemElement);
+            });
+        }
+        
+        // Renderizar desafíos
+        function renderChallenges() {
+            const container = document.getElementById('challengesList');
+            container.innerHTML = '';
+            
+            challenges.forEach(challenge => {
+                const percentage = (challenge.progress / challenge.total) * 100;
+                const challengeElement = document.createElement('div');
+                challengeElement.className = 'challenge-card';
+                challengeElement.innerHTML = `
+                    <div class="challenge-header">
+                        <div class="challenge-title">${challenge.title}</div>
+                        <div class="challenge-xp">${challenge.xp} XP</div>
+                    </div>
+                    <div class="challenge-progress">
+                        <div class="challenge-progress-text">
+                            <span>Progreso</span>
+                            <span>${challenge.progress}/${challenge.total}</span>
+                        </div>
+                        <div class="challenge-progress-bar">
+                            <div class="challenge-progress-fill" style="width: ${percentage}%"></div>
+                        </div>
+                    </div>
+                    <div class="challenge-description">${challenge.description}</div>
+                `;
+                
+                container.appendChild(challengeElement);
+            });
+        }
+        
+        // Renderizar noticias
+        function renderNews() {
+            const container = document.getElementById('newsList');
+            container.innerHTML = '';
+            
+            news.forEach(newsItem => {
+                const newsElement = document.createElement('div');
+                newsElement.className = 'news-card';
+                newsElement.innerHTML = `
+                    <div class="news-image">
+                        <img src="${customImageUrl}" alt="${newsItem.title}">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-category">${newsItem.category}</div>
+                        <div class="news-title">${newsItem.title}</div>
+                        <div class="news-excerpt">${newsItem.excerpt}</div>
+                        <div class="news-date">
+                            <i class="far fa-clock"></i>
+                            <span>${newsItem.date}</span>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(newsElement);
+            });
+        }
+        
+        // Configurar event listeners
+        function setupEventListeners() {
+            // Botón de jugar ahora
+            const playButton = document.querySelector('.action-button');
+            playButton.addEventListener('click', function() {
+                alert('¡Iniciando Fortnite! Esta es una demostración, en una aplicación real se lanzaría el juego.');
+            });
+            
+            // Botón de jugar gratis
+            const playFreeButton = document.querySelector('.play-button');
+            playFreeButton.addEventListener('click', function() {
+                alert('Redirigiendo a la página de descarga de Fortnite...');
+            });
+            
+            // Botón de ver trailer
+            const trailerButton = document.querySelector('.secondary-button');
+            trailerButton.addEventListener('click', function() {
+                alert('Reproduciendo trailer de la nueva temporada...');
+            });
+            
+            // Navegación
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remover clase active de todos los enlaces
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Agregar clase active al enlace clickeado
+                    this.classList.add('active');
+                    
+                    // Mostrar mensaje según la sección
+                    const section = this.textContent;
+                    alert(`Navegando a la sección: ${section}`);
+                });
+            });
+            
+            // Enlaces "Ver todos"
+            const viewAllLinks = document.querySelectorAll('.view-all');
+            viewAllLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Cargando más contenido...');
+                });
+            });
+            
+            // Items de la tienda
+            const shopItems = document.querySelectorAll('.shop-item');
+            shopItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    alert('Añadiendo item al carrito de compras...');
+                });
+            });
+        }
+    </script>
 </body>
 </html>
