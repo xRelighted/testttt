@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fortnite Pro - Plataforma de Gaming</title>
+    <title>Luana Bell Agüero Arce - Curriculum Vitae</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #00ccff;
-            --secondary-color: #ff66c4;
-            --accent-color: #9d4edd;
-            --dark-bg: #0a0a12;
-            --darker-bg: #05050a;
-            --card-bg: #151522;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0d0;
-            --hover-color: #252538;
-            --border-color: #2a2a3a;
-            --success-color: #00ff88;
-            --warning-color: #ffaa00;
-            --epic-color: #cba6f7;
-            --legendary-color: #ffcc00;
+            --primary-color: #8a4fff;
+            --primary-light: #b18cff;
+            --secondary-color: #ff6b8b;
+            --dark-color: #2d2b55;
+            --light-color: #f8f9fa;
+            --gray-color: #6c757d;
+            --light-gray: #e9ecef;
+            --transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
         }
         
         * {
@@ -30,281 +28,329 @@
             box-sizing: border-box;
         }
         
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--darker-bg);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(157, 78, 221, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 80% 70%, rgba(0, 204, 255, 0.1) 0%, transparent 20%);
+        html {
+            scroll-behavior: smooth;
         }
         
-        /* Header */
-        .header {
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7ff;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header y navegación */
+        header {
+            background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 20px 0;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background-color: rgba(10, 10, 18, 0.95);
-            padding: 0 20px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
             z-index: 1000;
-            border-bottom: 2px solid var(--border-color);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(0);
+            transition: var(--transition);
         }
         
-        .header-left, .header-center, .header-right {
+        header.hidden {
+            transform: translateY(-100%);
+        }
+        
+        nav {
             display: flex;
+            justify-content: space-between;
             align-items: center;
         }
         
         .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            text-decoration: none;
-            margin-right: 30px;
+            gap: 10px;
         }
         
-        .logo span {
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .logo-icon {
-            color: var(--primary-color);
-            margin-right: 10px;
-            font-size: 2rem;
+        .logo i {
+            color: var(--secondary-color);
         }
         
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 30px;
         }
         
-        .nav-link {
-            color: var(--text-primary);
+        .nav-links a {
+            color: white;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 500;
             padding: 8px 0;
             position: relative;
-            transition: color 0.3s;
+            transition: var(--transition);
         }
         
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-color);
-        }
-        
-        .nav-link.active::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: 0;
             left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            border-radius: 2px;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
         }
         
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
         
-        .action-button {
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            color: white;
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
             border: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 0.9rem;
+            color: white;
+            font-size: 1.5rem;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .action-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.3);
-        }
-        
-        .v-bucks {
-            display: flex;
-            align-items: center;
-            background-color: var(--card-bg);
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-weight: 700;
-        }
-        
-        .v-bucks i {
-            color: gold;
-            margin-right: 8px;
-        }
-        
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            cursor: pointer;
-            border: 2px solid var(--primary-color);
         }
         
         /* Hero Section */
-        .hero-section {
-            margin-top: 70px;
-            padding: 40px 0;
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0 60px;
             position: relative;
             overflow: hidden;
         }
         
         .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 60px;
             align-items: center;
+        }
+        
+        .hero-text {
+            animation: fadeInUp 1s ease-out;
         }
         
         .hero-text h1 {
+            font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
+            font-weight: 600;
+            line-height: 1.2;
             margin-bottom: 20px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--dark-color);
+        }
+        
+        .hero-text h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 30px;
         }
         
         .hero-text p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
+            font-size: 1.1rem;
+            color: var(--gray-color);
+            margin-bottom: 40px;
             max-width: 500px;
         }
         
-        .hero-buttons {
+        .cta-buttons {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
         }
         
-        .play-button {
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        .btn {
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--shadow);
         }
         
-        .play-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 204, 255, 0.3);
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
         
-        .secondary-button {
-            background-color: transparent;
-            color: var(--text-primary);
-            border: 2px solid var(--border-color);
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s;
-        }
-        
-        .secondary-button:hover {
-            background-color: var(--hover-color);
-            border-color: var(--primary-color);
-        }
-        
-        .hero-stats {
-            display: flex;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
+        .btn-secondary {
+            background-color: white;
             color: var(--primary-color);
-            line-height: 1;
+            border: 2px solid var(--primary-color);
         }
         
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-top: 5px;
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
         }
         
         .hero-image {
             position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            border: 2px solid var(--border-color);
+            animation: float 6s ease-in-out infinite;
         }
         
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Main Content */
-        .main-content {
-            max-width: 1200px;
+        .profile-container {
+            width: 400px;
+            height: 400px;
             margin: 0 auto;
-            padding: 0 20px 60px;
+            position: relative;
         }
         
-        /* Sections */
-        .section-header {
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
-            margin-top: 60px;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(20px);
+        }
+        
+        .profile-image i {
+            font-size: 10rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            animation: floatAround 20s linear infinite;
+        }
+        
+        .floating-icon:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+            background-color: var(--primary-light);
+            color: white;
+        }
+        
+        .floating-icon:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation-delay: -5s;
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .floating-icon:nth-child(3) {
+            bottom: 15%;
+            left: 15%;
+            animation-delay: -10s;
+            background-color: var(--dark-color);
+            color: white;
+        }
+        
+        .floating-icon:nth-child(4) {
+            bottom: 10%;
+            right: 10%;
+            animation-delay: -15s;
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        /* Secciones generales */
+        section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
         }
         
         .section-title {
-            font-size: 2rem;
-            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
             position: relative;
             display: inline-block;
         }
@@ -313,983 +359,1200 @@
             content: '';
             position: absolute;
             bottom: -10px;
-            left: 0;
-            width: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
             border-radius: 2px;
         }
         
-        .view-all {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .section-subtitle {
+            color: var(--gray-color);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
-        .view-all:hover {
-            text-decoration: underline;
+        /* Sobre mí */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: start;
         }
         
-        /* Battle Pass Section */
-        .battle-pass {
-            background: linear-gradient(135deg, var(--card-bg), #1a1a2e);
-            border-radius: 15px;
+        .personal-info {
+            background-color: white;
+            border-radius: 20px;
             padding: 30px;
-            margin-bottom: 40px;
-            border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 120px;
+            transition: var(--transition);
         }
         
-        .battle-pass::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+        .personal-info:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
         }
         
-        .bp-header {
+        .info-item {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
-        .bp-title {
-            font-size: 1.8rem;
-            font-weight: 800;
+        .info-item i {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(138, 79, 255, 0.1);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
         }
         
-        .bp-season {
-            background-color: var(--primary-color);
-            color: var(--dark-bg);
-            padding: 5px 15px;
-            border-radius: 30px;
-            font-weight: 700;
+        .info-content h4 {
             font-size: 0.9rem;
+            color: var(--gray-color);
+            margin-bottom: 5px;
         }
         
-        .bp-progress {
-            margin-bottom: 30px;
+        .info-content p {
+            font-weight: 500;
+            color: var(--dark-color);
         }
         
-        .bp-level {
+        .about-text {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .about-text:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray-color);
+        }
+        
+        /* Habilidades */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .skill-category h3 {
+            color: var(--dark-color);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .skill-category h3 i {
+            color: var(--primary-color);
+        }
+        
+        .skill-item {
+            margin-bottom: 25px;
+        }
+        
+        .skill-header {
             display: flex;
             justify-content: space-between;
             margin-bottom: 10px;
         }
         
-        .bp-level span {
-            font-weight: 600;
+        .skill-name {
+            font-weight: 500;
+            color: var(--dark-color);
         }
         
-        .bp-progress-bar {
-            height: 12px;
-            background-color: var(--border-color);
-            border-radius: 6px;
+        .skill-percent {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: var(--light-gray);
+            border-radius: 5px;
             overflow: hidden;
         }
         
-        .bp-progress-fill {
+        .skill-progress {
             height: 100%;
-            width: 65%;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            border-radius: 6px;
+            border-radius: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: fillBar 1.5s ease-out forwards;
         }
         
-        .bp-rewards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        .languages {
+            display: flex;
+            flex-direction: column;
             gap: 20px;
         }
         
-        .bp-reward {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s;
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        .bp-reward:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
-        }
-        
-        .reward-image {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 15px;
-            border-radius: 10px;
-            overflow: hidden;
-            background-color: var(--darker-bg);
+        .language-name {
             display: flex;
             align-items: center;
-            justify-content: center;
-            border: 2px solid var(--border-color);
+            gap: 10px;
+            font-weight: 500;
         }
         
-        .reward-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .language-level {
+            padding: 5px 15px;
+            background-color: rgba(138, 79, 255, 0.1);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
         
-        .reward-name {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .reward-level {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-        
-        /* Shop Grid */
-        .shop-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        
-        .shop-item {
-            background-color: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s, box-shadow 0.3s;
+        /* Formación y certificaciones */
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
             position: relative;
         }
         
-        .shop-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: var(--primary-color);
-        }
-        
-        .item-image {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .item-image img {
-            width: 100%;
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 30px;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
         }
         
-        .shop-item:hover .item-image img {
-            transform: scale(1.1);
-        }
-        
-        .item-info {
-            padding: 20px;
-        }
-        
-        .item-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .item-description {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-        
-        .item-footer {
+        .timeline-item {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
         
-        .item-rarity {
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
         
-        .rarity-epic {
-            background-color: rgba(157, 78, 221, 0.2);
-            color: var(--epic-color);
-            border: 1px solid var(--epic-color);
-        }
-        
-        .rarity-legendary {
-            background-color: rgba(255, 204, 0, 0.2);
-            color: var(--legendary-color);
-            border: 1px solid var(--legendary-color);
-        }
-        
-        .rarity-rare {
-            background-color: rgba(0, 204, 255, 0.2);
-            color: var(--primary-color);
-            border: 1px solid var(--primary-color);
-        }
-        
-        .item-price {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-        
-        .item-price i {
-            color: gold;
-        }
-        
-        /* Challenges */
-        .challenges-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-        }
-        
-        .challenge-card {
-            background-color: var(--card-bg);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s;
-        }
-        
-        .challenge-card:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-5px);
-        }
-        
-        .challenge-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .challenge-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-        
-        .challenge-xp {
-            background-color: var(--success-color);
-            color: var(--dark-bg);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-        
-        .challenge-progress {
-            margin-bottom: 15px;
-        }
-        
-        .challenge-progress-text {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-        }
-        
-        .challenge-progress-bar {
-            height: 8px;
-            background-color: var(--border-color);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .challenge-progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            border-radius: 4px;
-        }
-        
-        .challenge-description {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-        
-        /* News Section */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-        }
-        
-        .news-card {
-            background-color: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s;
-        }
-        
-        .news-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
-        }
-        
-        .news-image {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .news-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .news-card:hover .news-image img {
-            transform: scale(1.05);
-        }
-        
-        .news-content {
-            padding: 20px;
-        }
-        
-        .news-category {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--dark-bg);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .news-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            line-height: 1.3;
-        }
-        
-        .news-excerpt {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-        
-        .news-date {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        /* Footer */
-        .footer {
-            background-color: var(--dark-bg);
-            border-top: 1px solid var(--border-color);
-            padding: 40px 0 20px;
-            margin-top: 60px;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-        
-        .footer-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icon {
-            width: 40px;
-            height: 40px;
+        .timeline-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             border-radius: 50%;
-            background-color: var(--card-bg);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-primary);
-            font-size: 1.2rem;
-            transition: all 0.3s;
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 30px;
+            flex-shrink: 0;
+            z-index: 1;
+            box-shadow: var(--shadow);
         }
         
-        .social-icon:hover {
-            background-color: var(--primary-color);
-            color: var(--dark-bg);
-            transform: translateY(-3px);
+        .timeline-content {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            flex-grow: 1;
+            transition: var(--transition);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .timeline-date {
+            display: inline-block;
+            background-color: rgba(138, 79, 255, 0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-subtitle {
+            color: var(--gray-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-description {
+            color: var(--gray-color);
+        }
+        
+        /* Contacto */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .contact-info:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .contact-form:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .contact-form h3 {
+            color: var(--dark-color);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
         }
         
         .copyright {
-            text-align: center;
-            padding-top: 30px;
             margin-top: 30px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
         }
         
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes floatAround {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, 20px) rotate(90deg);
+            }
+            50% {
+                transform: translate(0, 40px) rotate(180deg);
+            }
+            75% {
+                transform: translate(-20px, 20px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+        
+        @keyframes fillBar {
+            to {
+                transform: scaleX(1);
+            }
+        }
+        
         /* Responsive */
-        @media (max-width: 1024px) {
+        @media (max-width: 992px) {
             .hero-content {
                 grid-template-columns: 1fr;
-            }
-            
-            .hero-text {
                 text-align: center;
             }
             
-            .hero-text p {
-                max-width: 100%;
+            .hero-text h1 {
+                font-size: 2.8rem;
             }
             
-            .hero-buttons {
-                justify-content: center;
+            .profile-container {
+                width: 300px;
+                height: 300px;
             }
             
-            .hero-stats {
-                justify-content: center;
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .personal-info {
+                position: static;
             }
         }
         
         @media (max-width: 768px) {
-            .header {
-                padding: 0 15px;
-                height: 60px;
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--dark-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             }
             
-            .nav-links {
-                display: none;
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 15px;
+            }
+            
+            .mobile-toggle {
+                display: block;
             }
             
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
             }
             
             .section-title {
-                font-size: 1.7rem;
+                font-size: 2rem;
             }
             
-            .bp-rewards {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            }
-            
-            .shop-grid, .challenges-grid, .news-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-section {
-                padding: 30px 0;
+            .cta-buttons {
+                justify-content: center;
             }
         }
         
-        @media (max-width: 480px) {
-            .hero-buttons {
-                flex-direction: column;
+        @media (max-width: 576px) {
+            .hero-text h1 {
+                font-size: 2rem;
             }
             
-            .hero-stats {
-                flex-direction: column;
-                gap: 20px;
+            .btn {
+                padding: 12px 25px;
             }
             
-            .action-button {
-                padding: 8px 15px;
-                font-size: 0.8rem;
+            .profile-container {
+                width: 250px;
+                height: 250px;
             }
             
-            .v-bucks {
-                padding: 5px 10px;
+            .profile-image i {
+                font-size: 8rem;
+            }
+            
+            .floating-icon {
+                width: 40px;
+                height: 40px;
                 font-size: 0.9rem;
             }
             
-            .bp-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .personal-info,
+            .about-text,
+            .skill-category,
+            .timeline-content,
+            .contact-info,
+            .contact-form {
+                padding: 25px;
             }
         }
         
-        /* Animaciones */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        /* Efectos de entrada para elementos */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
         
-        .pulse {
-            animation: pulse 2s infinite;
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
         
-        .glow {
-            box-shadow: 0 0 15px rgba(0, 204, 255, 0.5);
+        /* Efecto de partículas */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(138, 79, 255, 0.1);
+            border-radius: 50%;
+            animation: floatParticle 20s linear infinite;
+        }
+        
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Partículas de fondo -->
+    <div class="particles" id="particles"></div>
+    
     <!-- Header -->
-    <header class="header">
-        <div class="header-left">
-            <a href="#" class="logo">
-                <i class="fas fa-gamepad logo-icon"></i>
-                <span>FORTNITEPRO</span>
-            </a>
-            
-            <ul class="nav-links">
-                <li><a href="#" class="nav-link active">Inicio</a></li>
-                <li><a href="#" class="nav-link">Battle Pass</a></li>
-                <li><a href="#" class="nav-link">Tienda</a></li>
-                <li><a href="#" class="nav-link">Modos</a></li>
-                <li><a href="#" class="nav-link">Noticias</a></li>
-                <li><a href="#" class="nav-link">Competitivo</a></li>
-            </ul>
-        </div>
-        
-        <div class="header-right">
-            <div class="header-actions">
-                <button class="action-button pulse">
-                    <i class="fas fa-play"></i> Jugar Ahora
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Luana Bell</span>
+                </div>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="active">Inicio</a></li>
+                    <li><a href="#about">Sobre mí</a></li>
+                    <li><a href="#skills">Habilidades</a></li>
+                    <li><a href="#education">Formación</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+                
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
                 </button>
-                <div class="v-bucks">
-                    <i class="fas fa-coins"></i>
-                    <span>3,250</span>
-                </div>
-                <div class="user-avatar">
-                    P1
-                </div>
-            </div>
+            </nav>
         </div>
     </header>
     
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>NUEVA TEMPORADA<br>CAPÍTULO 4 - TEMPORADA 3</h1>
-                <p>Explora la jungla salvaje, descubre secretos antiguos y domina las nuevas mecánicas de juego. ¡La aventura más grande de Fortnite te espera!</p>
-                
-                <div class="hero-buttons">
-                    <button class="play-button glow">
-                        <i class="fas fa-play-circle"></i> Jugar Gratis
-                    </button>
-                    <button class="secondary-button">
-                        <i class="fas fa-info-circle"></i> Ver Trailer
-                    </button>
-                </div>
-                
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">125M+</div>
-                        <div class="stat-label">Jugadores Activos</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">25</div>
-                        <div class="stat-label">Nuevos Objetos</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">70+</div>
-                        <div class="stat-label">Recompensas BP</div>
+    <!-- Sección Hero / Inicio -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Luana Bell Agüero Arce</h1>
+                    <h2>Joven Profesional en Formación</h2>
+                    <p>Joven profesional en formación con excelente predisposición administrativa y habilidades en gestión de oficina. Dominio de herramientas Microsoft Office y conocimientos en maquillaje profesional.</p>
+                    
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i> Contáctame
+                        </a>
+                        <a href="#about" class="btn btn-secondary">
+                            <i class="fas fa-user"></i> Sobre mí
+                        </a>
                     </div>
                 </div>
-            </div>
-            
-            <div class="hero-image">
-                <img src="https://cdn.cdnstep.com/5BRTU83jvPQE4lboJuns/0.webp" alt="Fortnite Temporada 4 Capítulo 3">
+                
+                <div class="hero-image">
+                    <div class="profile-container">
+                        <div class="profile-image">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        
+                        <div class="floating-icons">
+                            <div class="floating-icon">
+                                <i class="fas fa-file-excel"></i>
+                            </div>
+                            <div class="floating-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="floating-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="floating-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Battle Pass Section -->
-        <section class="battle-pass-section">
+    <!-- Sección Sobre mí -->
+    <section id="about" class="about">
+        <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Battle Pass</h2>
-                <a href="#" class="view-all">
-                    Ver todos los niveles <i class="fas fa-arrow-right"></i>
-                </a>
+                <h2 class="section-title">Sobre Mí</h2>
+                <p class="section-subtitle">Conoce más sobre mi perfil profesional y personal</p>
             </div>
             
-            <div class="battle-pass">
-                <div class="bp-header">
-                    <h3 class="bp-title">Battle Pass - Jungla Salvaje</h3>
-                    <div class="bp-season">TEMPORADA 4 - CAPÍTULO 3</div>
-                </div>
-                
-                <div class="bp-progress">
-                    <div class="bp-level">
-                        <span>Nivel 42</span>
-                        <span>Nivel 100</span>
+            <div class="about-content">
+                <div class="personal-info animate-on-scroll">
+                    <div class="info-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <div class="info-content">
+                            <h4>Fecha de Nacimiento</h4>
+                            <p>26/07/2007 (18 años)</p>
+                        </div>
                     </div>
-                    <div class="bp-progress-bar">
-                        <div class="bp-progress-fill"></div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="info-content">
+                            <h4>Teléfono</h4>
+                            <p>+595 976 549 410</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="info-content">
+                            <h4>Email</h4>
+                            <p>luanabellaguero@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="info-content">
+                            <h4>Ubicación</h4>
+                            <p>Paraguay</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-user-graduate"></i>
+                        <div class="info-content">
+                            <h4>Formación</h4>
+                            <p>Bachiller Técnico Científico (En curso)</p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="bp-rewards" id="bpRewards">
-                    <!-- Battle Pass rewards will be loaded here by JavaScript -->
+                <div class="about-text animate-on-scroll">
+                    <h3>Perfil Profesional</h3>
+                    <p>Joven profesional en formación con excelente predisposición administrativa y habilidades en gestión de oficina. Poseo un enfoque proactivo y orientado a resultados, con capacidad para adaptarme rápidamente a nuevos entornos y desafíos.</p>
+                    
+                    <p>Mi dominio de herramientas Microsoft Office me permite realizar tareas administrativas con eficiencia y precisión. Además, cuento con conocimientos en maquillaje profesional en niveles inicial y avanzado, lo que complementa mi perfil versátil y creativo.</p>
+                    
+                    <p>Busco oportunidades que me permitan desarrollar mis habilidades profesionales, contribuir con mi entusiasmo y capacidad de aprendizaje, y crecer junto a una organización que valore la dedicación y el trabajo bien realizado.</p>
+                    
+                    <h3 style="margin-top: 30px;">Habilidades Adicionales</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px;">
+                        <span style="background-color: rgba(138, 79, 255, 0.1); color: var(--primary-color); padding: 8px 16px; border-radius: 20px; font-weight: 500;">Excelente comunicación interpersonal</span>
+                        <span style="background-color: rgba(138, 79, 255, 0.1); color: var(--primary-color); padding: 8px 16px; border-radius: 20px; font-weight: 500;">Capacidad organizativa</span>
+                        <span style="background-color: rgba(138, 79, 255, 0.1); color: var(--primary-color); padding: 8px 16px; border-radius: 20px; font-weight: 500;">Trabajo en equipo</span>
+                        <span style="background-color: rgba(138, 79, 255, 0.1); color: var(--primary-color); padding: 8px 16px; border-radius: 20px; font-weight: 500;">Atención al detalle</span>
+                    </div>
                 </div>
-            </div>
-        </section>
-        
-        <!-- Shop Section -->
-        <section class="shop-section">
-            <div class="section-header">
-                <h2 class="section-title">Tienda del Día</h2>
-                <a href="#" class="view-all">
-                    Ver tienda completa <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            
-            <div class="shop-grid" id="shopItems">
-                <!-- Shop items will be loaded here by JavaScript -->
-            </div>
-        </section>
-        
-        <!-- Challenges Section -->
-        <section class="challenges-section">
-            <div class="section-header">
-                <h2 class="section-title">Desafíos de la Semana</h2>
-                <a href="#" class="view-all">
-                    Ver todos los desafíos <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            
-            <div class="challenges-grid" id="challengesList">
-                <!-- Challenges will be loaded here by JavaScript -->
-            </div>
-        </section>
-        
-        <!-- News Section -->
-        <section class="news-section">
-            <div class="section-header">
-                <h2 class="section-title">Últimas Noticias</h2>
-                <a href="#" class="view-all">
-                    Ver todas las noticias <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            
-            <div class="news-grid" id="newsList">
-                <!-- News will be loaded here by JavaScript -->
-            </div>
-        </section>
-    </main>
-    
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>FORTNITEPRO</h3>
-                <p>La plataforma definitiva para jugadores de Fortnite. Mantente al día con las últimas noticias, desafíos y contenido del juego.</p>
-                
-                <div class="social-icons">
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-discord"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Enlaces Rápidos</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Descargar Fortnite</a></li>
-                    <li><a href="#">Soporte Técnico</a></li>
-                    <li><a href="#">Estado del Servidor</a></li>
-                    <li><a href="#">Competitivo</a></li>
-                    <li><a href="#">Códigos de Canje</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Recursos</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Guías y Tutoriales</a></li>
-                    <li><a href="#">Mapas Interactivos</a></li>
-                    <li><a href="#">Calculadora de XP</a></li>
-                    <li><a href="#">Estadísticas</a></li>
-                    <li><a href="#">Eventos</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Legal</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Términos de Servicio</a></li>
-                    <li><a href="#">Política de Privacidad</a></li>
-                    <li><a href="#">Política de Cookies</a></li>
-                    <li><a href="#">Aviso Legal</a></li>
-                </ul>
             </div>
         </div>
-        
-        <div class="copyright">
-            <p>© 2023 FortnitePro. Esta es una plataforma de fans no oficial. Fortnite es una marca registrada de Epic Games.</p>
-            <p>Todas las imágenes utilizan la misma miniatura personalizada como se solicitó.</p>
+    </section>
+    
+    <!-- Sección Habilidades -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Habilidades</h2>
+                <p class="section-subtitle">Conjunto de habilidades técnicas y personales que ofrezco</p>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-category animate-on-scroll">
+                    <h3><i class="fas fa-laptop-code"></i> Habilidades Técnicas</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Microsoft Word</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Microsoft Excel</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Microsoft PowerPoint</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Maquillaje Profesional</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category animate-on-scroll">
+                    <h3><i class="fas fa-globe-americas"></i> Idiomas</h3>
+                    
+                    <div class="languages">
+                        <div class="language-item">
+                            <div class="language-name">
+                                <i class="fas fa-flag"></i>
+                                <span>Español</span>
+                            </div>
+                            <span class="language-level">Nativo</span>
+                        </div>
+                        
+                        <div class="language-item">
+                            <div class="language-name">
+                                <i class="fas fa-flag-usa"></i>
+                                <span>Inglés</span>
+                            </div>
+                            <span class="language-level">Básico</span>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 40px;"><i class="fas fa-certificate"></i> Certificaciones</h3>
+                    
+                    <div class="certifications" style="margin-top: 20px;">
+                        <div style="background-color: rgba(138, 79, 255, 0.05); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                            <div style="font-weight: 600; color: var(--dark-color);">Maquillaje Profesional - Nivel Avanzado</div>
+                            <div style="color: var(--gray-color); font-size: 0.9rem;">Centro de imagen Lesly Ortigoza - 2025</div>
+                        </div>
+                        
+                        <div style="background-color: rgba(138, 79, 255, 0.05); padding: 15px; border-radius: 10px;">
+                            <div style="font-weight: 600; color: var(--dark-color);">Maquillaje Profesional - Nivel Inicial</div>
+                            <div style="color: var(--gray-color); font-size: 0.9rem;">Centro de imagen Lesly Ortigoza - 2025</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección Formación -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Formación Académica</h2>
+                <p class="section-subtitle">Mi trayectoria educativa y certificaciones profesionales</p>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025 (En curso de finalización)</span>
+                        <h3 class="timeline-title">Bachiller Técnico Científico</h3>
+                        <p class="timeline-subtitle">Énfasis en Ciencias Sociales</p>
+                        <p class="timeline-description">Colegio Redentorista Priv. Subv. Santísimo Redentor</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025</span>
+                        <h3 class="timeline-title">Maquillaje Profesional - Nivel Avanzado</h3>
+                        <p class="timeline-subtitle">Centro de imagen Lesly Ortigoza</p>
+                        <p class="timeline-description">Certificación en técnicas avanzadas de maquillaje profesional para diferentes ocasiones y estilos.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025</span>
+                        <h3 class="timeline-title">Maquillaje Profesional - Nivel Inicial</h3>
+                        <p class="timeline-subtitle">Centro de imagen Lesly Ortigoza</p>
+                        <p class="timeline-description">Formación en fundamentos del maquillaje profesional, técnicas básicas y uso de productos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección Contacto -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contacto</h2>
+                <p class="section-subtitle">Ponte en contacto conmigo para oportunidades profesionales</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info animate-on-scroll">
+                    <h3 style="color: var(--dark-color); margin-bottom: 30px; font-size: 1.8rem;">Información de Contacto</h3>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="info-content">
+                            <h4>Teléfono</h4>
+                            <p>+595 976 549 410</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="info-content">
+                            <h4>Email</h4>
+                            <p>luanabellaguero@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="info-content">
+                            <h4>Ubicación</h4>
+                            <p>Paraguay</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-user"></i>
+                        <div class="info-content">
+                            <h4>Disponibilidad</h4>
+                            <p>Busco oportunidades profesionales</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form animate-on-scroll">
+                    <h3>Enviar Mensaje</h3>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Tu nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Tu email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Asunto" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Tu mensaje" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo" style="color: white;">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Luana Bell Agüero Arce</span>
+                </div>
+                
+                <p style="max-width: 600px; color: rgba(255, 255, 255, 0.8);">Joven profesional en formación con excelente predisposición administrativa y habilidades en gestión de oficina.</p>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:luanabellaguero@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Luana Bell Agüero Arce. Todos los derechos reservados.</p>
+                <p>Curriculum Vitae interactivo - Diseñado con HTML, CSS y JavaScript</p>
+            </div>
         </div>
     </footer>
     
     <script>
-        // URL de la imagen personalizada
-        const customImageUrl = "https://cdn.cdnstep.com/5BRTU83jvPQE4lboJuns/0.webp";
+        // Crear partículas de fondo
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posición aleatoria
+                particle.style.left = `${Math.random() * 100}%`;
+                
+                // Color aleatorio con opacidad
+                const colors = [
+                    'rgba(138, 79, 255, 0.2)',
+                    'rgba(255, 107, 139, 0.2)',
+                    'rgba(177, 140, 255, 0.2)'
+                ];
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Animación con duración y delay aleatorios
+                const duration = Math.random() * 30 + 20;
+                const delay = Math.random() * 10;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
         
-        // Datos del Battle Pass
-        const battlePassRewards = [
-            { id: 1, name: "Traje - Cazador de Jungla", level: 5, rarity: "epic" },
-            { id: 2, name: "Emote - Danza Tribal", level: 10, rarity: "rare" },
-            { id: 3, name: "Ala Delta - Alas de Jaguar", level: 15, rarity: "epic" },
-            { id: 4, name: "Pico - Garra Ancestral", level: 20, rarity: "legendary" },
-            { id: 5, name: "Traje - Guardián del Templo", level: 30, rarity: "legendary" },
-            { id: 6, name: "Emote - Ritual de la Selva", level: 40, rarity: "epic" },
-            { id: 7, name: "Mochila - Reliquia Perdida", level: 50, rarity: "rare" },
-            { id: 8, name: "Traje - Espíritu de la Jungla", level: 75, rarity: "legendary" }
-        ];
-        
-        // Datos de la tienda
-        const shopItems = [
-            { id: 1, name: "Traje - Cibernético", description: "Traje futurista con efectos luminosos y animaciones personalizadas.", price: 1500, rarity: "legendary" },
-            { id: 2, name: "Emote - Break Dance", description: "Realiza movimientos de breakdance con efectos de partículas.", price: 800, rarity: "epic" },
-            { id: 3, name: "Pico - Espada Láser", description: "Espada láser que cambia de color y emite sonidos únicos.", price: 1200, rarity: "legendary" },
-            { id: 4, name: "Ala Delta - Alas de Dragón", description: "Ala delta con aspecto de dragón y efectos de fuego.", price: 1200, rarity: "epic" },
-            { id: 5, name: "Traje - Detective Noir", description: "Traje clásico de detective con sombrero y efectos de lluvia.", price: 1500, rarity: "epic" },
-            { id: 6, name: "Emote - Guitarra Eléctrica", description: "Toca una guitarra eléctrica con efectos de sonido y luces.", price: 800, rarity: "rare" }
-        ];
-        
-        // Datos de desafíos
-        const challenges = [
-            { id: 1, title: "Eliminaciones en Zonas Altas", description: "Consigue 10 eliminaciones en áreas elevadas del mapa.", progress: 7, total: 10, xp: 25000 },
-            { id: 2, title: "Recolectar Frutas Exóticas", description: "Encuentra y consume 15 frutas exóticas en la jungla.", progress: 15, total: 15, xp: 15000 },
-            { id: 3, title: "Recorrer Distancia en Liana", description: "Recorre 1000m utilizando lianas en la jungla.", progress: 650, total: 1000, xp: 20000 },
-            { id: 4, title: "Buscar Cofres en Templos", description: "Abre 7 cofres en templos antiguos de la jungla.", progress: 4, total: 7, xp: 15000 }
-        ];
-        
-        // Datos de noticias
-        const news = [
-            { id: 1, title: "Nueva Actualización 24.10 - ¡La Jungla se Expande!", category: "Actualización", excerpt: "Descubre las nuevas áreas de la jungla, mecánicas de lianas y animales salvajes en la última actualización.", date: "Hace 2 días" },
-            { id: 2, title: "Torneo Cash Cup - $50,000 en Premios", category: "Competitivo", excerpt: "Inscríbete al torneo Cash Cup de esta semana con premios en efectivo para los mejores jugadores.", date: "Hace 4 días" },
-            { id: 3, title: "Colaboración con Marvel: Nuevos Trajes", category: "Colaboración", excerpt: "Llegan nuevos trajes de personajes de Marvel al juego, incluyendo versiones exclusivas.", date: "Hace 1 semana" }
-        ];
-        
-        // Inicializar la aplicación
-        document.addEventListener('DOMContentLoaded', function() {
-            renderBattlePassRewards();
-            renderShopItems();
-            renderChallenges();
-            renderNews();
-            setupEventListeners();
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Cerrar menú móvil si está abierto
+                    const navLinks = document.getElementById('navLinks');
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                    
+                    // Desplazamiento suave
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Actualizar enlace activo
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
         });
         
-        // Renderizar recompensas del Battle Pass
-        function renderBattlePassRewards() {
-            const container = document.getElementById('bpRewards');
-            container.innerHTML = '';
-            
-            battlePassRewards.forEach(reward => {
-                const rewardElement = document.createElement('div');
-                rewardElement.className = 'bp-reward';
-                rewardElement.innerHTML = `
-                    <div class="reward-image">
-                        <img src="${customImageUrl}" alt="${reward.name}">
-                    </div>
-                    <div class="reward-name">${reward.name}</div>
-                    <div class="reward-level">Nivel ${reward.level}</div>
-                `;
-                
-                container.appendChild(rewardElement);
-            });
-        }
+        // Ocultar/mostrar header al hacer scroll
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
         
-        // Renderizar items de la tienda
-        function renderShopItems() {
-            const container = document.getElementById('shopItems');
-            container.innerHTML = '';
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
-            shopItems.forEach(item => {
-                const itemElement = document.createElement('div');
-                itemElement.className = 'shop-item';
-                itemElement.innerHTML = `
-                    <div class="item-image">
-                        <img src="${customImageUrl}" alt="${item.name}">
-                    </div>
-                    <div class="item-info">
-                        <div class="item-name">${item.name}</div>
-                        <div class="item-description">${item.description}</div>
-                        <div class="item-footer">
-                            <div class="item-rarity rarity-${item.rarity}">${item.rarity.toUpperCase()}</div>
-                            <div class="item-price">
-                                <i class="fas fa-coins"></i>
-                                <span>${item.price}</span>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                container.appendChild(itemElement);
-            });
-        }
+            if (scrollTop > lastScrollTop && scrollTop > 200) {
+                // Scroll hacia abajo
+                header.classList.add('hidden');
+            } else {
+                // Scroll hacia arriba
+                header.classList.remove('hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+            
+            // Actualizar enlace activo según la sección visible
+            updateActiveNavLink();
+            
+            // Animar elementos al hacer scroll
+            animateOnScroll();
+        });
         
-        // Renderizar desafíos
-        function renderChallenges() {
-            const container = document.getElementById('challengesList');
-            container.innerHTML = '';
+        // Actualizar enlace activo según la sección visible
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
             
-            challenges.forEach(challenge => {
-                const percentage = (challenge.progress / challenge.total) * 100;
-                const challengeElement = document.createElement('div');
-                challengeElement.className = 'challenge-card';
-                challengeElement.innerHTML = `
-                    <div class="challenge-header">
-                        <div class="challenge-title">${challenge.title}</div>
-                        <div class="challenge-xp">${challenge.xp} XP</div>
-                    </div>
-                    <div class="challenge-progress">
-                        <div class="challenge-progress-text">
-                            <span>Progreso</span>
-                            <span>${challenge.progress}/${challenge.total}</span>
-                        </div>
-                        <div class="challenge-progress-bar">
-                            <div class="challenge-progress-fill" style="width: ${percentage}%"></div>
-                        </div>
-                    </div>
-                    <div class="challenge-description">${challenge.description}</div>
-                `;
+            let currentSectionId = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const scrollPosition = window.pageYOffset;
                 
-                container.appendChild(challengeElement);
-            });
-        }
-        
-        // Renderizar noticias
-        function renderNews() {
-            const container = document.getElementById('newsList');
-            container.innerHTML = '';
-            
-            news.forEach(newsItem => {
-                const newsElement = document.createElement('div');
-                newsElement.className = 'news-card';
-                newsElement.innerHTML = `
-                    <div class="news-image">
-                        <img src="${customImageUrl}" alt="${newsItem.title}">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-category">${newsItem.category}</div>
-                        <div class="news-title">${newsItem.title}</div>
-                        <div class="news-excerpt">${newsItem.excerpt}</div>
-                        <div class="news-date">
-                            <i class="far fa-clock"></i>
-                            <span>${newsItem.date}</span>
-                        </div>
-                    </div>
-                `;
-                
-                container.appendChild(newsElement);
-            });
-        }
-        
-        // Configurar event listeners
-        function setupEventListeners() {
-            // Botón de jugar ahora
-            const playButton = document.querySelector('.action-button');
-            playButton.addEventListener('click', function() {
-                alert('¡Iniciando Fortnite! Esta es una demostración, en una aplicación real se lanzaría el juego.');
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSectionId = `#${section.id}`;
+                }
             });
             
-            // Botón de jugar gratis
-            const playFreeButton = document.querySelector('.play-button');
-            playFreeButton.addEventListener('click', function() {
-                alert('Redirigiendo a la página de descarga de Fortnite...');
-            });
-            
-            // Botón de ver trailer
-            const trailerButton = document.querySelector('.secondary-button');
-            trailerButton.addEventListener('click', function() {
-                alert('Reproduciendo trailer de la nueva temporada...');
-            });
-            
-            // Navegación
-            const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Remover clase active de todos los enlaces
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    
-                    // Agregar clase active al enlace clickeado
-                    this.classList.add('active');
-                    
-                    // Mostrar mensaje según la sección
-                    const section = this.textContent;
-                    alert(`Navegando a la sección: ${section}`);
-                });
-            });
-            
-            // Enlaces "Ver todos"
-            const viewAllLinks = document.querySelectorAll('.view-all');
-            viewAllLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    alert('Cargando más contenido...');
-                });
-            });
-            
-            // Items de la tienda
-            const shopItems = document.querySelectorAll('.shop-item');
-            shopItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    alert('Añadiendo item al carrito de compras...');
-                });
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentSectionId) {
+                    link.classList.add('active');
+                }
             });
         }
+        
+        // Animar elementos al hacer scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll, .timeline-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animated');
+                    element.classList.add('visible');
+                }
+            });
+            
+            // Animar secciones
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionPosition = section.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (sectionPosition < screenPosition) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        
+        // Menú móvil
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            this.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Cerrar menú móvil al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Formulario de contacto
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simular envío del formulario
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                alert('¡Mensaje enviado con éxito! Gracias por contactarme, me pondré en contacto contigo pronto.');
+                contactForm.reset();
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            }, 1500);
+        });
+        
+        // Inicializar animaciones y partículas
+        window.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            animateOnScroll();
+            
+            // Animar barras de habilidades después de un breve retraso
+            setTimeout(() => {
+                document.querySelectorAll('.skill-progress').forEach(bar => {
+                    bar.style.animationPlayState = 'running';
+                });
+            }, 500);
+        });
+        
+        // Efecto de escritura en el título principal
+        const heroTitle = document.querySelector('.hero-text h1');
+        const originalText = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        function typeWriter() {
+            if (i < originalText.length) {
+                heroTitle.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        
+        // Iniciar efecto de escritura después de cargar la página
+        window.addEventListener('load', function() {
+            setTimeout(typeWriter, 500);
+        });
     </script>
 </body>
 </html>
