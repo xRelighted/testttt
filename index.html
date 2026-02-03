@@ -2,199 +2,267 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<title>Luana Bell Agüero Arce | Curriculum Vitae</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fortnite Lobby</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-body {
-    font-family: 'Bebas Neue', sans-serif;
-    height: 100vh;
-    background: radial-gradient(circle at top, #1c3cff, #020016);
-    color: white;
-    overflow: hidden;
+body{
+    background:linear-gradient(120deg,#f6f7fb,#e9ecf1);
+    color:#333;
 }
 
-/* TOP BAR */
-.top-bar {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 60px;
-    background: rgba(0,0,0,0.4);
-    display: flex;
-    align-items: center;
-    padding: 0 30px;
-    gap: 30px;
-    font-size: 20px;
+.container{
+    max-width:1100px;
+    margin:40px auto;
+    display:flex;
+    background:#fff;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 30px 60px rgba(0,0,0,.12);
+    animation:fade 1.2s ease;
 }
 
-.top-bar span {
-    opacity: 0.85;
-    cursor: pointer;
+.sidebar{
+    width:320px;
+    padding:45px;
+    color:#fff;
+    background:linear-gradient(180deg,#3a4fff,#5f6cff);
+    animation:slideLeft 1.2s ease;
 }
 
-.top-bar span:hover {
-    opacity: 1;
+.sidebar h1{
+    font-size:30px;
+    line-height:1.2;
 }
 
-/* MAIN LAYOUT */
-.lobby {
-    display: flex;
-    height: 100%;
-    padding-top: 60px;
+.sidebar span{
+    font-weight:300;
 }
 
-/* LEFT PANEL */
-.left-panel {
-    width: 260px;
-    background: rgba(0,0,0,0.35);
-    padding: 30px 20px;
+.age{
+    margin:10px 0 30px;
+    opacity:.85;
 }
 
-.mode {
-    background: linear-gradient(135deg, #6c4cff, #00c3ff);
-    padding: 18px;
-    border-radius: 10px;
-    font-size: 26px;
-    text-align: center;
-    margin-bottom: 25px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+.contact p{
+    margin-bottom:12px;
+    font-size:14px;
 }
 
-.stats {
-    font-size: 18px;
-    line-height: 1.8;
-    opacity: 0.9;
+.content{
+    flex:1;
+    padding:45px;
+    animation:slideUp 1.2s ease;
 }
 
-/* CENTER CHARACTER */
-.center {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+section{
+    margin-bottom:35px;
 }
 
-.character {
-    width: 280px;
-    height: 420px;
-    background: linear-gradient(180deg, #ffd86a, #ff8a00);
-    border-radius: 20px;
-    box-shadow: 0 0 80px rgba(255,200,0,0.6);
-    position: relative;
+h2{
+    margin-bottom:16px;
+    position:relative;
 }
 
-.character::after {
-    content: "";
-    position: absolute;
-    bottom: -40px;
-    width: 180%;
-    height: 80px;
-    background: radial-gradient(ellipse at center, rgba(255,255,255,0.4), transparent);
-    left: -40%;
+h2::after{
+    content:'';
+    width:40px;
+    height:3px;
+    background:#5f6cff;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    border-radius:3px;
 }
 
-/* PLAYER NAME */
-.player-name {
-    margin-top: 25px;
-    font-size: 34px;
-    letter-spacing: 3px;
-    text-shadow: 0 0 15px #fff;
+.card{
+    background:#f7f8ff;
+    padding:20px;
+    border-radius:15px;
 }
 
-/* PLAY BUTTON */
-.play {
-    margin-top: 30px;
-    background: #ffcc00;
-    color: black;
-    font-size: 36px;
-    padding: 18px 80px;
-    border-radius: 14px;
-    cursor: pointer;
-    box-shadow: 0 0 40px rgba(255,200,0,0.8);
-    transition: transform 0.15s, box-shadow 0.15s;
+.card h3{
+    margin-bottom:5px;
 }
 
-.play:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 70px rgba(255,200,0,1);
+.card span, .card small{
+    display:block;
+    opacity:.8;
 }
 
-/* RIGHT PANEL */
-.right-panel {
-    width: 260px;
-    background: rgba(0,0,0,0.35);
-    padding: 30px 20px;
+.skill{
+    margin-bottom:16px;
 }
 
-.card {
-    background: rgba(255,255,255,0.08);
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 20px;
-    font-size: 18px;
+.skill span{
+    font-size:14px;
 }
 
-.card strong {
-    display: block;
-    font-size: 22px;
-    margin-bottom: 6px;
+.bar{
+    background:#ddd;
+    height:8px;
+    border-radius:6px;
+    overflow:hidden;
+    margin-top:6px;
+}
+
+.bar div{
+    height:100%;
+    width:0;
+    background:linear-gradient(90deg,#3a4fff,#5f6cff);
+    border-radius:6px;
+    transition:width 1.5s ease;
+}
+
+ul{
+    list-style:none;
+}
+
+ul li{
+    margin-bottom:8px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.tags li{
+    background:#eef0ff;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:13px;
+}
+
+@keyframes fade{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+@keyframes slideLeft{
+    from{transform:translateX(-40px);opacity:0}
+    to{transform:translateX(0);opacity:1}
+}
+
+@keyframes slideUp{
+    from{transform:translateY(40px);opacity:0}
+    to{transform:translateY(0);opacity:1}
+}
+
+@media(max-width:900px){
+    .container{
+        flex-direction:column;
+    }
+    .sidebar{
+        width:100%;
+        text-align:center;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-    <span>JUEGA</span>
-    <span>PASE</span>
-    <span>COMPETIR</span>
-    <span>TIENDA</span>
-    <span>CARRERA</span>
+<div class="container">
+    <aside class="sidebar">
+        <h1>Luana Bell<br><span>Agüero Arce</span></h1>
+        <p class="age">18 años · 26/07/2007</p>
+
+        <div class="contact">
+            <p>📞 +595 976 549 410</p>
+            <p>✉️ luanabellaguero@gmail.com</p>
+        </div>
+    </aside>
+
+    <main class="content">
+
+        <section>
+            <h2>Perfil</h2>
+            <p>
+                Joven profesional en formación con excelente predisposición administrativa y habilidades en
+                gestión de oficina. Dominio de herramientas Microsoft Office y conocimientos en maquillaje
+                profesional en niveles inicial y avanzado.
+            </p>
+        </section>
+
+        <section>
+            <h2>Formación Académica</h2>
+            <div class="card">
+                <h3>Bachiller Técnico Científico</h3>
+                <p>Énfasis en Ciencias Sociales</p>
+                <span>Colegio Redentorista Priv. Subv. Santísimo Redentor</span>
+                <small>2025 – En curso de finalización</small>
+            </div>
+        </section>
+
+        <section>
+            <h2>Habilidades Técnicas</h2>
+
+            <div class="skill">
+                <span>Microsoft Word</span>
+                <div class="bar"><div data-width="85%"></div></div>
+            </div>
+
+            <div class="skill">
+                <span>Microsoft Excel</span>
+                <div class="bar"><div data-width="80%"></div></div>
+            </div>
+
+            <div class="skill">
+                <span>Microsoft PowerPoint</span>
+                <div class="bar"><div data-width="90%"></div></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Idiomas</h2>
+            <ul>
+                <li>Español — Nativo</li>
+                <li>Inglés — Básico</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Certificaciones</h2>
+            <ul>
+                <li>Maquillaje Profesional – Nivel Avanzado (2025)</li>
+                <li>Maquillaje Profesional – Nivel Inicial (2025)</li>
+                <small>Centro de imagen Lesly Ortigoza</small>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Habilidades Adicionales</h2>
+            <ul class="tags">
+                <li>Comunicación interpersonal</li>
+                <li>Capacidad organizativa</li>
+                <li>Trabajo en equipo</li>
+                <li>Atención al detalle</li>
+            </ul>
+        </section>
+
+    </main>
 </div>
 
-<div class="lobby">
-
-    <!-- LEFT -->
-    <div class="left-panel">
-        <div class="mode">BATTLE ROYALE</div>
-        <div class="stats">
-            Nivel: 42<br>
-            V-Bucks: 1.200<br>
-            Escuadra: Solo
-        </div>
-    </div>
-
-    <!-- CENTER -->
-    <div class="center">
-        <div class="character"></div>
-        <div class="player-name">RELIGHTED</div>
-        <div class="play">¡JUGAR!</div>
-    </div>
-
-    <!-- RIGHT -->
-    <div class="right-panel">
-        <div class="card">
-            <strong>MISIÓN DIARIA</strong>
-            Elimina 3 enemigos
-        </div>
-        <div class="card">
-            <strong>EVENTO</strong>
-            Temporada Galáctica
-        </div>
-    </div>
-
-</div>
+<script>
+window.addEventListener("load",()=>{
+    document.querySelectorAll(".bar div").forEach(bar=>{
+        const w = bar.dataset.width;
+        bar.style.width = w;
+    });
+});
+</script>
 
 </body>
 </html>
