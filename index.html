@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCComponentes - Catálogo de Componentes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 2.2rem;
+            color: #4fc3f7;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #4fc3f7;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .cart-icon {
+            position: relative;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #ff4081;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(26, 35, 126, 0.85), rgba(26, 35, 126, 0.9)), url('https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 0 0 12px 12px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .search-bar {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .search-bar input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        .search-bar button {
+            background-color: #4fc3f7;
+            color: white;
+            border: none;
+            padding: 1rem 1.8rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .search-bar button:hover {
+            background-color: #29b6f6;
+        }
+        
+        /* Filtros */
+        .filters {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .filters h3 {
+            margin-bottom: 1rem;
+            color: #1a237e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .filter-btn {
+            background-color: #f0f4ff;
+            border: 1px solid #d1d9ff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #1a237e;
+            color: white;
+            border-color: #1a237e;
+        }
+        
+        /* Grid de productos */
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .products-header h2 {
+            color: #1a237e;
+        }
+        
+        .sort-select {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+        
+        .product-img {
+            height: 200px;
+            background-color: #f5f7fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .product-img i {
+            font-size: 4rem;
+            color: #1a237e;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-category {
+            color: #4fc3f7;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .product-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #1a237e;
+        }
+        
+        .product-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #1a237e;
+            margin-bottom: 1.2rem;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .btn-add-cart, .btn-details {
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .btn-add-cart {
+            background-color: #4fc3f7;
+            color: white;
+        }
+        
+        .btn-add-cart:hover {
+            background-color: #29b6f6;
+        }
+        
+        .btn-details {
+            background-color: #f0f4ff;
+            color: #1a237e;
+            border: 1px solid #d1d9ff;
+        }
+        
+        .btn-details:hover {
+            background-color: #e8edff;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a237e;
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: #4fc3f7;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-section ul li a {
+            color: #e8eaf6;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #4fc3f7;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #283593;
+            color: #c5cae9;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 0.8rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .btn-add-cart, .btn-details {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-microchip"></i>
+                <h1>PC<span>Componentes</span></h1>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#">Catálogo</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">3</span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Construye tu PC ideal</h2>
+            <p>Encuentra los mejores componentes de computadora al mejor precio. Procesadores, tarjetas gráficas, memorias y más.</p>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar componentes...">
+                <button><i class="fas fa-search"></i> Buscar</button>
+            </div>
+        </div>
+    </section>
+    
+    <main class="container">
+        <!-- Filtros -->
+        <section class="filters">
+            <h3><i class="fas fa-filter"></i> Filtrar por categoría</h3>
+            <div class="filter-options">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="cpu">Procesadores</button>
+                <button class="filter-btn" data-filter="gpu">Tarjetas Gráficas</button>
+                <button class="filter-btn" data-filter="ram">Memoria RAM</button>
+                <button class="filter-btn" data-filter="motherboard">Placas Madre</button>
+                <button class="filter-btn" data-filter="storage">Almacenamiento</button>
+                <button class="filter-btn" data-filter="psu">Fuentes de Poder</button>
+            </div>
+        </section>
+        
+        <!-- Productos -->
+        <section class="products">
+            <div class="products-header">
+                <h2>Componentes Destacados</h2>
+                <select class="sort-select">
+                    <option>Ordenar por: Destacados</option>
+                    <option>Precio: menor a mayor</option>
+                    <option>Precio: mayor a menor</option>
+                    <option>Nombre A-Z</option>
+                </select>
+            </div>
+            
+            <div class="products-grid" id="products-grid">
+                <!-- Los productos se cargarán aquí con JavaScript -->
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PCComponentes</h3>
+                    <p>Tu tienda de confianza para componentes de computadora. Ofrecemos los mejores productos al mejor precio con garantía y soporte técnico.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Categorías</h3>
+                    <ul>
+                        <li><a href="#">Procesadores</a></li>
+                        <li><a href="#">Tarjetas Gráficas</a></li>
+                        <li><a href="#">Memoria RAM</a></li>
+                        <li><a href="#">Almacenamiento</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Calle Tecnología 123, Ciudad Digital</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-envelope"></i> info@pccomponentes.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 PCComponentes. Todos los derechos reservados.</p>
+                <p>Este es un catálogo de ejemplo para GitHub Pages</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Datos de los productos
+        const products = [
+            {
+                id: 1,
+                name: "AMD Ryzen 9 7950X",
+                category: "cpu",
+                description: "Procesador de 16 núcleos y 32 hilos, frecuencia base de 4.5GHz, hasta 5.7GHz en boost.",
+                price: 699.99,
+                icon: "fas fa-microchip"
+            },
+            {
+                id: 2,
+                name: "NVIDIA GeForce RTX 4090",
+                category: "gpu",
+                description: "Tarjeta gráfica con 24GB GDDR6X, arquitectura Ada Lovelace, DLSS 3.",
+                price: 1599.99,
+                icon: "fas fa-gamepad"
+            },
+            {
+                id: 3,
+                name: "Corsair Vengeance RGB 32GB",
+                category: "ram",
+                description: "Memoria DDR5 6000MHz, CL36, iluminación RGB personalizable.",
+                price: 149.99,
+                icon: "fas fa-memory"
+            },
+            {
+                id: 4,
+                name: "ASUS ROG Strix Z790-E",
+                category: "motherboard",
+                description: "Placa madre Intel Z790, WiFi 6E, PCIe 5.0, soporte DDR5.",
+                price: 499.99,
+                icon: "fas fa-desktop"
+            },
+            {
+                id: 5,
+                name: "Samsung 990 Pro 2TB",
+                category: "storage",
+                description: "SSD NVMe PCIe 4.0, velocidades de lectura hasta 7450MB/s.",
+                price: 179.99,
+                icon: "fas fa-hdd"
+            },
+            {
+                id: 6,
+                name: "Corsair RM1000x",
+                category: "psu",
+                description: "Fuente de poder 1000W 80 Plus Gold, modular, ventilador silencioso.",
+                price: 189.99,
+                icon: "fas fa-plug"
+            },
+            {
+                id: 7,
+                name: "Intel Core i9-13900K",
+                category: "cpu",
+                description: "Procesador de 24 núcleos (8P+16E), frecuencia turbo hasta 5.8GHz.",
+                price: 589.99,
+                icon: "fas fa-microchip"
+            },
+            {
+                id: 8,
+                name: "AMD Radeon RX 7900 XTX",
+                category: "gpu",
+                description: "Tarjeta gráfica con 24GB GDDR6, arquitectura RDNA 3, frecuencia hasta 2.5GHz.",
+                price: 999.99,
+                icon: "fas fa-gamepad"
+            }
+        ];
+        
+        // Categorías para los filtros
+        const categories = [
+            { id: "all", name: "Todos" },
+            { id: "cpu", name: "Procesadores" },
+            { id: "gpu", name: "Tarjetas Gráficas" },
+            { id: "ram", name: "Memoria RAM" },
+            { id: "motherboard", name: "Placas Madre" },
+            { id: "storage", name: "Almacenamiento" },
+            { id: "psu", name: "Fuentes de Poder" }
+        ];
+        
+        // Elementos del DOM
+        const productsGrid = document.getElementById('products-grid');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const cartCount = document.querySelector('.cart-count');
+        const searchInput = document.querySelector('.search-bar input');
+        const searchButton = document.querySelector('.search-bar button');
+        
+        // Variables del carrito
+        let cartItems = 3;
+        
+        // Inicializar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts(products);
+            setupEventListeners();
+        });
+        
+        // Función para renderizar productos
+        function renderProducts(productsToRender) {
+            productsGrid.innerHTML = '';
+            
+            productsToRender.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.setAttribute('data-category', product.category);
+                
+                // Icono basado en categoría
+                const categoryIcon = product.icon;
+                const categoryName = categories.find(cat => cat.id === product.category).name;
+                
+                productCard.innerHTML = `
+                    <div class="product-img">
+                        <i class="${categoryIcon}"></i>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${categoryName}</div>
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">$${product.price.toFixed(2)}</div>
+                        <div class="product-actions">
+                            <button class="btn-add-cart" data-id="${product.id}">
+                                <i class="fas fa-cart-plus"></i> Agregar
+                            </button>
+                            <button class="btn-details" data-id="${product.id}">
+                                <i class="fas fa-info-circle"></i> Detalles
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                productsGrid.appendChild(productCard);
+            });
+            
+            // Agregar eventos a los botones de los productos
+            document.querySelectorAll('.btn-add-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    addToCart(productId);
+                });
+            });
+            
+            document.querySelectorAll('.btn-details').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    showProductDetails(productId);
+                });
+            });
+        }
+        
+        // Función para configurar event listeners
+        function setupEventListeners() {
+            // Filtros
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Actualizar botones activos
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filtrar productos
+                    if (filter === 'all') {
+                        renderProducts(products);
+                    } else {
+                        const filteredProducts = products.filter(product => product.category === filter);
+                        renderProducts(filteredProducts);
+                    }
+                });
+            });
+            
+            // Búsqueda
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            // Ordenar productos
+            const sortSelect = document.querySelector('.sort-select');
+            sortSelect.addEventListener('change', function() {
+                const sortValue = this.value;
+                let sortedProducts = [...products];
+                
+                if (sortValue.includes("Precio: menor a mayor")) {
+                    sortedProducts.sort((a, b) => a.price - b.price);
+                } else if (sortValue.includes("Precio: mayor a menor")) {
+                    sortedProducts.sort((a, b) => b.price - a.price);
+                } else if (sortValue.includes("Nombre A-Z")) {
+                    sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+                }
+                
+                // Aplicar filtro actual si hay uno activo
+                const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+                if (activeFilter !== 'all') {
+                    sortedProducts = sortedProducts.filter(product => product.category === activeFilter);
+                }
+                
+                renderProducts(sortedProducts);
+            });
+        }
+        
+        // Función para buscar productos
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            if (searchTerm.trim() === '') {
+                // Si la búsqueda está vacía, mostrar todos los productos
+                const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+                
+                if (activeFilter === 'all') {
+                    renderProducts(products);
+                } else {
+                    const filteredProducts = products.filter(product => product.category === activeFilter);
+                    renderProducts(filteredProducts);
+                }
+                return;
+            }
+            
+            const filteredProducts = products.filter(product => 
+                product.name.toLowerCase().includes(searchTerm) || 
+                product.description.toLowerCase().includes(searchTerm) ||
+                categories.find(cat => cat.id === product.category).name.toLowerCase().includes(searchTerm)
+            );
+            
+            renderProducts(filteredProducts);
+        }
+        
+        // Función para agregar al carrito
+        function addToCart(productId) {
+            cartItems++;
+            cartCount.textContent = cartItems;
+            
+            // Animación del carrito
+            cartCount.style.transform = 'scale(1.3)';
+            setTimeout(() => {
+                cartCount.style.transform = 'scale(1)';
+            }, 300);
+            
+            // Mostrar mensaje de confirmación
+            const product = products.find(p => p.id === productId);
+            alert(`¡${product.name} se ha agregado al carrito!`);
+        }
+        
+        // Función para mostrar detalles del producto (simulación)
+        function showProductDetails(productId) {
+            const product = products.find(p => p.id === productId);
+            alert(`Detalles del producto:\n\n${product.name}\n\n${product.description}\n\nPrecio: $${product.price.toFixed(2)}`);
+        }
+    </script>
+</body>
+</html>
